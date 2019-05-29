@@ -72,15 +72,29 @@ public class JobData {
 
         ArrayList<HashMap<String, String>> jobs = new ArrayList<>();
 
+        boolean Nothing = true;
         for (HashMap<String, String> row : allJobs) {
+
+            if (column == "all") {
+                if (row.containsValue(value)){
+                    jobs.add(row);
+                    Nothing = false;
+                }
+
+            } else {
 
             String aValue = row.get(column);
 
             if (aValue.contains(value)) {
                 jobs.add(row);
+                Nothing = false;
             }
+          }
         }
 
+        if (Nothing == true){
+            System.out.println("\n\nNo such jobs found...");
+        }
         return jobs;
     }
 

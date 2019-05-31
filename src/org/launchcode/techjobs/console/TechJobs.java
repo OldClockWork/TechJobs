@@ -61,9 +61,9 @@ public class TechJobs {
                 String searchTerm = in.nextLine();
 
                 if (searchField.equals("all")) {
-                    printJobs(JobData.findByColumnAndValue(searchField, searchTerm));
+                    printJobs(JobData.findByValue(Capitalization.CapUp(searchTerm)));
                 } else {
-                    printJobs(JobData.findByColumnAndValue(searchField, searchTerm));
+                    printJobs(JobData.findByColumnAndValue(searchField, Capitalization.CapUp(searchTerm)));
                 }
             }
         }
@@ -111,13 +111,17 @@ public class TechJobs {
     // Print a list of jobs
     private static void printJobs(ArrayList<HashMap<String, String>> someJobs) {
 
+        Integer count = 0;
+
         for (HashMap<String, String> c : someJobs){
             System.out.println("*****");
             for (HashMap.Entry<String, String > entry : c.entrySet()){
                 System.out.println(entry.getKey() + ": " + entry.getValue());
 
             }
+            count += 1;
             System.out.println("*****\n\n");
         }
+        System.out.println(count);
     }
 }

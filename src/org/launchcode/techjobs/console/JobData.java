@@ -54,7 +54,7 @@ public class JobData {
         return allJobs;
     }
 
-    //--------------------------FINISHED
+    //--------------------------ADDED
     public static ArrayList<HashMap<String, String>> findByValue(String value) {
 
         // load data, if not already loaded
@@ -64,7 +64,7 @@ public class JobData {
         boolean Nothing = true;
 
         for (HashMap<String, String> row : allJobs) {
-                if (row.containsValue(value)){
+                if (row.toString().contains(value)){
                     jobs.add(row);
                     Nothing = false;
                 }
@@ -75,7 +75,7 @@ public class JobData {
         }
         return jobs;
     }
-    //--------------------------FINISHED
+    //--------------------------ADDED
 
     /**
      * Returns results of search the jobs data by key/value, using
